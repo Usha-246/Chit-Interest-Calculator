@@ -1,0 +1,261 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: rgba(189, 181, 181, 0.22);
+    width:100%;
+    
+}
+.header{
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid gray;
+    height: 6vh;
+    background-color: white;
+}
+.num{
+    margin-left: 25px;
+    font-size: 35px;
+    text-align: center;
+    color: rosybrown;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.text{
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.menu-button{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.buttons{
+    width: 23%;
+    background-color: white;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+.button1, .button2{
+    padding: 8px ;
+    margin: 2px;
+    background-color: white;
+    border: none;
+    color: #FF69B4;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button1:hover{
+    background-color: #FF69B4;
+    color: white;
+}
+.button2:hover{
+    background-color: #FF69B4;
+    color: white;
+}
+.button3{
+    padding: 10px 25px;
+    margin: 2px;
+    background-color: #FF69B4;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.dropdown{
+    position: absolute;
+    width: 135px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid gray;
+}
+.dropdown ul li{
+    list-style-type: none;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.amount{
+    width:90% ;
+    margin:40px auto;
+    background-color: white;
+    /* height: 70vh; */
+    border-radius: 10px;
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.amountForm{
+    width: 30%;
+    /* background-color: aqua; */
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border-right: 1px solid gray;
+    display: block;
+}
+.form-label{
+    font-size: 16px;
+    color: gray;
+    margin: 8px;
+}
+.form-input input{
+    width: 80%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color:rgba(206, 206, 231, 0.269) ;
+    margin: 5px;
+    outline: gray;
+    font-size: 16px;
+}
+.form-input select{
+    width: 80%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color:rgba(206, 206, 231, 0.269) ;
+    margin: 5px;
+    outline: gray;
+    font-size: 16px;
+}
+.form-clear{
+    margin-top: 40px;
+    padding: 10px 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 192, 203, 0.589);
+    color: #FF69B4;
+    
+}
+.form-calculate{
+    margin-top: 40px;
+    padding: 10px 35px;
+    border-radius: 5px;
+    border: none;
+    background-color:#FF69B4;
+    color: white;
+    margin-left: 20px;
+}
+.amountTable{
+    width:58%;
+    /* background-color: aqua; */
+    /* margin-left: 45px;
+    margin-top: 40px;
+    margin-bottom: 50px; */
+    border: 1px solid gray;
+    margin:50px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+.table{
+    width: 100%;
+    display: block;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.table th{
+    padding:10px 20px;
+    height: 10px;
+    text-align: center;
+    background-color:rgba(206, 206, 231, 0.269) ;
+    background-size: cover;
+    border-spacing: 5px;
+    box-sizing: border-box;
+}
+.bonus{
+    width:90% ;
+    margin:40px auto;
+    background-color: white;
+    /* height: 70vh; */
+    border-radius: 10px;
+    display: flex;
+    justify-content:space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+.bonus-table{
+    width:40%;
+    /* background-color: aqua; */
+    /* margin-left: 45px;
+    margin-top: 40px;
+    margin-bottom: 50px; */
+    /* border: 1px solid gray; */
+    margin:50px auto;
+    border-radius: 10px;
+    text-align:center ;
+    font-size: 20px;
+    border-left: 1px solid gray;
+}
+.bonusTable{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    color: gray;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.bonusTable tr{
+        padding: 10px;
+}
+.bonusTable th, td{
+    padding: 15px;
+    height:20px;
+    width: 500px;
+}
+.bonus-form{
+    width: 30%;
+    /* background-color: aqua; */
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    
+}
+.bonus-formtable{
+    width: 60%;
+    height: 30vh;
+    width: 500px;
+}
+.bonus-formtable tr td{
+    padding: 20px;
+    height:20px;
+    width: 650px;
+}
+.bonusLabel label{
+    font-size: 16px;
+    color: gray;
+}
+.bonusLabel input{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color:rgba(206, 206, 231, 0.269) ;
+    margin: 5px;
+    outline: gray;
+    font-size: 16px;
+}
+.bonusLabel select{
+     width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color:rgba(206, 206, 231, 0.269) ;
+    margin: 5px;
+    outline: gray;
+    font-size: 16px;
+}
