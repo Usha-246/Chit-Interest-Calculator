@@ -81,6 +81,12 @@ body{
     font-size: 16px;
     cursor: pointer;
 }
+.dropdown ul li button{
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 .amount{
     width:90% ;
     margin:40px auto;
@@ -147,29 +153,30 @@ body{
     margin-left: 20px;
 }
 .amountTable{
-    width:58%;
+    width:45%;
     /* background-color: aqua; */
     /* margin-left: 45px;
     margin-top: 40px;
     margin-bottom: 50px; */
     border: 1px solid gray;
-    margin:50px auto;
+    margin:40px auto;
     border-radius: 5px;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
 }
 .table{
     width: 100%;
     display: block;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    text-align: center;
+    
 }
 .table th{
-    padding:10px 20px;
-    height: 10px;
+    padding:5px 20px;
+    height: 5px;
     text-align: center;
     background-color:rgba(206, 206, 231, 0.269) ;
-    background-size: cover;
     border-spacing: 5px;
     box-sizing: border-box;
 }
@@ -183,19 +190,21 @@ body{
     justify-content:space-between;
     align-content: space-between;
     flex-wrap: wrap;
+    
 }
 .bonus-table{
-    width:40%;
+    width:35%;
     /* background-color: aqua; */
     /* margin-left: 45px;
     margin-top: 40px;
     margin-bottom: 50px; */
     /* border: 1px solid gray; */
-    margin:50px auto;
-    border-radius: 10px;
-    text-align:center ;
+    margin:40px auto;
+    /* border-radius: 10px; */
+    text-align:left;
     font-size: 20px;
-    border-left: 1px solid gray;
+
+    /* border-left: 1px solid gray; */
 }
 .bonusTable{
     width: 100%;
@@ -204,16 +213,23 @@ body{
     color: gray;
     border-radius: 5px;
     border: 1px solid gray;
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 50px;
+    
 }
 .bonusTable tr{
         padding: 10px;
+        
 }
-.bonusTable th, td{
+.bonusTable th{
     padding: 15px;
     height:20px;
     width: 500px;
+}
+.bonusTable td{
+    padding: 15px;
+    height: 20px;
+    width: 200px;
 }
 .bonus-form{
     width: 30%;
@@ -221,12 +237,13 @@ body{
     margin-left: 50px;
     margin-top: 40px;
     margin-bottom: 50px;
-    
+    /* border-right: 1px solid gray; */
 }
 .bonus-formtable{
     width: 60%;
     height: 30vh;
-    width: 500px;
+    width: 600px;
+    border-right: 1px solid gray;
 }
 .bonus-formtable tr td{
     padding: 20px;
