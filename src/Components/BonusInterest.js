@@ -5,14 +5,14 @@ const BonusInterest = (props) => {
     // State Values
     const [inputs, setInputs] = useState({
         bchitValue: '',
-        bcommPercent: '',
+        bcommPercent: 1,
         btMonth: '',
         bpMonth: '',
         auction: ''
     })
     const [val, setVal] = useState({})
-
-
+    const [overalldata,setoveralldata]=useState([])
+    
     //HandleChange 
     const handleChangeBonus = (e) => {
         let { name, value } = e.target
@@ -43,21 +43,31 @@ const BonusInterest = (props) => {
         let val2 = bonusSecondInstallment()
         let val3 = bonusThirdInstallment()
 
-        let bdisplay = [{ ...auctionVal }, { ...val1 }, { ...val2 }, ...val3];
+        let bdisplay = [{ ...auctionVal}, { ...val1 }, { ...val2 }, ...val3];
 
         for (let i = 0; i < bdisplay.length; i++) {
             Object.assign(bMap, bdisplay[i]);
-            console.log(bMap);
+        
             if (inputs.bpMonth == bMap.id) {
-                setVal({ ...bMap });
+                setVal({...bMap});
+
+                let bonusValue = [{...bMap}]
+                console.log(bonusValue)
+                
+            props.bonusdataFromChild(bonusValue)
+            
             }
         }
-     }
+    }
 
      //Calculating Auction Amount
     function auctionValue() {
-        const auctionAmount = parseInt(inputs.bchitValue) - parseInt(inputs.auction)
+        if (Number(inputs.auction)){
+        const auctionAmount = Number(inputs.bchitValue) - Number(inputs.auction)
         return auctionAmount
+        }
+        return null
+        
     }
 
     //Calculating First Installment 
@@ -66,20 +76,21 @@ const BonusInterest = (props) => {
         let interest = 0;
         let installment = inputs.bchitValue / inputs.btMonth
         let commission = inputs.bchitValue * (parseInt(inputs.bcommPercent) / 100)
+        let amountVal = inputs.bchitValue
         const auctionAmount = parseInt(inputs.bchitValue) - parseInt(inputs.auction)
-        return { id, interest, installment, auctionAmount, commission }
+        return { id, interest, installment,amountVal, commission }
     }
 
     //Calculating Second Installment
     function bonusSecondInstallment() {
         let id = 2
         let amount = inputs.bchitValue * (30 / 100);
-        let bonusValue = inputs.bchitValue - amount
-        let commission = bonusValue * (parseInt(inputs.bcommPercent) / 100)
-        let interest = ((100 - ((bonusValue / inputs.bchitValue) * 100)) / 100).toFixed(2)
-        let installment = bonusValue / inputs.btMonth
+        let amountVal = inputs.bchitValue - amount
+        let commission = amountVal * (parseInt(inputs.bcommPercent) / 100)
+        let interest = ((100 - ((amountVal / inputs.bchitValue) * 100)) / 100).toFixed(2)
+        let installment = amountVal / inputs.btMonth
         const auctionAmount = parseInt(inputs.bchitValue) - parseInt(inputs.auction)
-        return { id, interest, installment, auctionAmount, commission }
+        return { id, interest, installment,amountVal, commission }
     }
 
     //Calculating Remining Installment
@@ -96,7 +107,7 @@ const BonusInterest = (props) => {
             let commission = ((Math.round(amountVal * (parseInt(inputs.bcommPercent) / 100))) * 100) / 100
             let interest = ((100 - ((amountVal / inputs.bchitValue) * 100)) / 100).toFixed(2)
             const auctionAmount = parseInt(inputs.bchitValue) - parseInt(inputs.auction)
-            let obj = { id, interest, installment, auctionAmount, commission }
+            let obj = { id, interest, installment,amountVal, commission }
 
             arr.push(obj)
         }
@@ -130,17 +141,17 @@ const BonusInterest = (props) => {
                             <td>
                                 <div className="bonusLabel">
                                     <label>Commission Percentage %</label>
-                                    <select name="bcommPercent" value={inputs.bcommPercent} onChange={handleChangeBonus}>
-                                        <option value='1%'>1%</option>
-                                        <option value='2%'>2%</option>
-                                        <option value='3%'>3%</option>
-                                        <option value='4%'>4%</option>
-                                        <option value='5%'>5%</option>
-                                        <option value='6%'>6%</option>
-                                        <option value='7%'>7%</option>
-                                        <option value='8%'>8%</option>
-                                        <option value='9%'>9%</option>
-                                        <option value='10%'>10%</option>
+                                    <select name="bcommPercent" value={inputs.bcommPercent ? inputs.bcommPercent : 1} onChange={handleChangeBonus}>
+                                        <option value='1'>1</option>
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                        <option value='4'>4</option>
+                                        <option value='5'>5</option>
+                                        <option value='6'>6</option>
+                                        <option value='7'>7</option>
+                                        <option value='8'>8</option>
+                                        <option value='9'>9</option>
+                                        <option value='10'>10</option>
                                     </select>
                                 </div>
                             </td>
@@ -181,7 +192,7 @@ const BonusInterest = (props) => {
                         </tr>
                         <tr>
                             <th>Amount for auctioned person</th>
-                            <td>{val.auctionAmount}</td>
+                            <td>{val.amountVal}</td>
                         </tr>
                         <tr>
                             <th>Bonus amount</th>

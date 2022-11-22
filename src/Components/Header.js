@@ -7,20 +7,36 @@ import { jsPDF } from 'jspdf'
 import html2canvas from "html2canvas";
 import { CSVLink } from "react-csv";
 
+
 const Header = () => {
 
     //State Value
-    const [isLogging, setIsLogging] = useState()
+    const [isLogging, setIsLogging] = useState('')
     const [dropdown, setDropDown] = useState(false)
-    const [excel, setExcel] = useState('')
+    const [excel, setExcel] = useState([])
+    const [isDownload,setIsdownload] = useState(false)
 
+    
     //Data from Child
-    const getDataFromChild = (arr) => {
-        setExcel(arr)
-
+    const amountgetDataFromChild = (arr) => {
+            setExcel(arr)
     }
    
-
+    const bonusgetDataFromChild = (brr) => {
+            setExcel(brr)
+           
+    }
+   
+    // HandleChange Download
+    const handleDownload = ()=>{
+        if(isDownload===true){
+            amountgetDataFromChild()
+        }
+        else{
+           bonusgetDataFromChild()
+        }
+   }
+   
     //HandleClick For Page Toggle
     const handleClick = (e) => {
         const { name } = e.target;
@@ -77,7 +93,7 @@ const Header = () => {
                             <div className="dropdown">
                                 <ul>
                                     <li><button onClick={printDocument}>PDF</button></li>
-                                    <CSVLink data={excel}>CSV(Excel)</CSVLink>
+                                    <CSVLink data={excel} onClick={()=>handleDownload}>CSV(Excel)</CSVLink>
                                 </ul>
                             </div>
                         )
@@ -89,8 +105,11 @@ const Header = () => {
 
             {
 
-                (isLogging === 'amount') ? <AmountInterest amountRef={inputRef} dataFromChild={getDataFromChild} /> :
-                                            <BonusInterest amountRef={inputRef} />
+                (isLogging === 'amount') ? <AmountInterest amountRef={inputRef} amountdataFromChild={amountgetDataFromChild}
+                                            isDownload ={isDownload}/> :
+                                            <BonusInterest amountRef={inputRef} bonusdataFromChild={bonusgetDataFromChild}
+                                            isDownload={isDownload}
+                        />
 
             }
 
